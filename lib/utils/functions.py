@@ -26,9 +26,12 @@ def Pdf_convert(pdf_dict):
             pageobj =read_pdf.pages[i]
             pagecontent = pageobj.extract_text()
             file_name = key.name.rstrip('.pdf')
-            txt_file= open(f'data/{file_name}.txt',"a",encoding='utf-8')
-            txt_file.writelines(pagecontent)
-            txt_file.close() #closing the created text file
+            
+            if not os.path.exists('/data/'):
+                os.makedirs('/data/')
+                
+            with open(f'/data/{file_name}.txt',"a",encoding='utf-8') as txt_file:
+                txt_file.writelines(pagecontent)
         
         open_pdf.close()
 
