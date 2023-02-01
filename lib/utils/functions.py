@@ -18,13 +18,13 @@ def Pdf_convert(pdf_dict):
     """
     for key in pdf_dict.keys():
         open_pdf = open(key.path,'rb')
-        read_pdf= PyPDF2.PdfFileReader(open_pdf)#reading pdf using the filereader
+        read_pdf= PyPDF2.PdfReader(open_pdf)#reading pdf using the filereader
         values = pdf_dict.get(key)
         # Page_count = read_pdf.numPages #getting number of pages in the pdf
         
         for i in range(values[0], values[1]):
-            pageobj =read_pdf.getPage(i)
-            pagecontent = pageobj.extractText()
+            pageobj =read_pdf.pages[i]
+            pagecontent = pageobj.extract_text()
             file_name = key.name.rstrip('.pdf')
             txt_file= open(f'data/{file_name}.txt',"a",encoding='utf-8')
             txt_file.writelines(pagecontent)
