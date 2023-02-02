@@ -1,5 +1,5 @@
 ### Network Character Analysis Using Named Entity Recognition
-/comm_detection.png
+![Community Detection Image](/assets/images/comm_detection.png)
 This project analyses all the characters of 'The Outlander' book series, containing eight titles, by Diana Gabaldon using named entity recognition from the spaCy library for NLP. The main steps utilized in this project are as follows:
 
 i. Character Scraping From WikiWebsite
